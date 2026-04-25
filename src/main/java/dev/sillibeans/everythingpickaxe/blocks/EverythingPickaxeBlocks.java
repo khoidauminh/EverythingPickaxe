@@ -12,7 +12,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.function.Supplier;
 
 import static dev.sillibeans.everythingpickaxe.EverythingPickaxe.MOD_ID;
-import static dev.sillibeans.everythingpickaxe.EverythingPickaxe.MOD_ID;
 
 public class EverythingPickaxeBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(

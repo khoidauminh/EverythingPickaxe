@@ -24,7 +24,7 @@ public class ObsidianAnvilBlock extends AnvilBlock {
 	}
 
 	@Override
-	public @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Player player, BlockHitResult hit) {
+	public @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hit) {
 		if (!level.isClientSide) {
 			ItemStack stack = player.getItemInHand(InteractionHand.MAIN_HAND);
 
@@ -47,7 +47,7 @@ public class ObsidianAnvilBlock extends AnvilBlock {
 	}
 
 	@Override
-	public void onRemove(@NotNull BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+	public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean isMoving) {
 		super.onRemove(state, level, pos, newState, isMoving);
 		if (newState.is(Blocks.AIR)) {
 			final int dropAmount = level.getRandom().nextIntBetweenInclusive(1, 2);

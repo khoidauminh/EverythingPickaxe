@@ -10,7 +10,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -89,17 +88,17 @@ public class EverythingAxeItem extends AxeItem {
 
     @Override
     public boolean isCorrectToolForDrops(
-        ItemStack itemstack,
-        BlockState blockstate
+            @NotNull ItemStack itemstack,
+            @NotNull BlockState blockstate
     ) {
         return true;
     }
 
     @Override
     public boolean hurtEnemy(
-        ItemStack itemstack,
-        LivingEntity entity,
-        LivingEntity sourceentity
+            ItemStack itemstack,
+            @NotNull LivingEntity entity,
+            @NotNull LivingEntity sourceentity
     ) {
         itemstack.hurtAndBreak(
             2,
@@ -141,7 +140,7 @@ public class EverythingAxeItem extends AxeItem {
     }
 
     @Override
-    public float getDestroySpeed(ItemStack itemstack, BlockState blockstate) {
+    public float getDestroySpeed(@NotNull ItemStack itemstack, BlockState blockstate) {
         return blockstate.is(BlockTags.MINEABLE_WITH_AXE) ? 40f : 0.15f;
     }
 }

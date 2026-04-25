@@ -11,7 +11,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -92,11 +91,11 @@ public class EverythingPickaxeItem extends TieredItem {
 
     @Override
     public boolean mineBlock(
-        ItemStack itemstack,
-        Level world,
-        BlockState blockstate,
-        BlockPos pos,
-        LivingEntity entity
+            @NotNull ItemStack itemstack,
+            Level world,
+            @NotNull BlockState blockstate,
+            @NotNull BlockPos pos,
+            @NotNull LivingEntity entity
     ) {
         if (!world.isClientSide()) {
             itemstack.hurtAndBreak(
@@ -110,9 +109,9 @@ public class EverythingPickaxeItem extends TieredItem {
 
     @Override
     public boolean hurtEnemy(
-        ItemStack itemstack,
-        LivingEntity entity,
-        LivingEntity sourceentity
+            ItemStack itemstack,
+            @NotNull LivingEntity entity,
+            @NotNull LivingEntity sourceentity
     ) {
         itemstack.hurtAndBreak(
             2,
@@ -123,14 +122,14 @@ public class EverythingPickaxeItem extends TieredItem {
     }
 
     @Override
-    public float getDestroySpeed(ItemStack itemstack, BlockState blockstate) {
+    public float getDestroySpeed(@NotNull ItemStack itemstack, BlockState blockstate) {
         return blockstate.is(Blocks.COBWEB) ? 15F : (float) Math.PI;
     }
 
     @Override
     public boolean isCorrectToolForDrops(
-        ItemStack itemstack,
-        BlockState blockstate
+            @NotNull ItemStack itemstack,
+            @NotNull BlockState blockstate
     ) {
         return true;
     }

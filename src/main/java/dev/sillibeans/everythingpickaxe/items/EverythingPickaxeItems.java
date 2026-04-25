@@ -4,7 +4,7 @@ package dev.sillibeans.everythingpickaxe.items;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTabs;
+
 import net.minecraft.world.item.Item;
 
 import dev.sillibeans.everythingpickaxe.EverythingPickaxe;

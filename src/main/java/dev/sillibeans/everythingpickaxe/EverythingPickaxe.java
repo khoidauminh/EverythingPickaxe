@@ -1,29 +1,15 @@
 package dev.sillibeans.everythingpickaxe;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.level.block.Blocks;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import dev.sillibeans.everythingpickaxe.blocks.EverythingPickaxeBlocks;
 import dev.sillibeans.everythingpickaxe.config.Config;
 import dev.sillibeans.everythingpickaxe.datacomponent.EverythingPickaxeDataComponents;
 import dev.sillibeans.everythingpickaxe.items.*;
-
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.component.CustomData;
-
-import static dev.sillibeans.everythingpickaxe.items.EverythingPickaxeItems.UNSCRAMBLED_EGG;
 
 @Mod(EverythingPickaxe.MOD_ID)
 public final class EverythingPickaxe {
@@ -33,18 +19,14 @@ public final class EverythingPickaxe {
 
     public static final Logger LOGGER = LogManager.getLogger(EverythingPickaxe.class);
 
-    public EverythingPickaxe(IEventBus modEventBus, ModContainer modContainer) {
-        System.out.println("Hello from EverythingPickaxe!");
+    public EverythingPickaxe(IEventBus modEventBus) {
+        LOGGER.info("Hello from EverythingPickaxe!");
 
         EverythingPickaxeDataComponents.DATA_COMPONENT_TYPES.register(modEventBus);
         EverythingPickaxeBlocks.BLOCKS.register(modEventBus);
         EverythingPickaxeItems.ITEMS.register(modEventBus);
 
         modEventBus.addListener(EverythingPickaxe::buildContents);
-    }
-
-    private void commonSetup(FMLCommonSetupEvent event) {
-        LOGGER.info("HELLO FROM COMMON SETUP");
     }
 
     public static void buildContents(BuildCreativeModeTabContentsEvent event) {

@@ -2,7 +2,7 @@ package dev.sillibeans.everythingpickaxe;
 
 import dev.sillibeans.everythingpickaxe.items.EverythingPickaxeItems;
 import dev.sillibeans.everythingpickaxe.items.UnscrambledEgg;
-import net.minecraft.client.Minecraft;
+
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
@@ -31,11 +31,9 @@ public class EverythingPickaxeClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
         ItemProperties.register(EverythingPickaxeItems.UNSCRAMBLED_EGG.get(), ResourceLocation.parse("everythingpickaxe:unscrambled_egg_mix"),
-            (itemstack, level, entity, id) -> {
-                return itemstack
-                    .getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
-                    .copyTag()
-                    .getInt(UnscrambledEgg.MIX_TAG);
-            });
+            (itemstack, level, entity, id) -> itemstack
+                .getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
+                .copyTag()
+                .getInt(UnscrambledEgg.MIX_TAG));
     }
 }

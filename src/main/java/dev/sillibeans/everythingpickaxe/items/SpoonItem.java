@@ -1,7 +1,7 @@
 package dev.sillibeans.everythingpickaxe.items;
 
 import dev.sillibeans.everythingpickaxe.datacomponent.EverythingPickaxeDataComponents;
-import dev.sillibeans.everythingpickaxe.items.EverythingPickaxeItems;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;

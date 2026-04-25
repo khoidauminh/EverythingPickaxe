@@ -10,6 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class UnscrambledEgg extends Item {
 
@@ -25,10 +26,10 @@ public class UnscrambledEgg extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(
-        Level world,
-        Player player,
-        InteractionHand hand
+    public @NotNull InteractionResultHolder<ItemStack> use(
+            @NotNull Level world,
+            @NotNull Player player,
+            @NotNull InteractionHand hand
     ) {
         InteractionResultHolder<ItemStack> ar = super.use(world, player, hand);
 
