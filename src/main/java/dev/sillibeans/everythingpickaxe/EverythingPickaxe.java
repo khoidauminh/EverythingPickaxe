@@ -2,12 +2,16 @@ package dev.sillibeans.everythingpickaxe;
 
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import dev.sillibeans.everythingpickaxe.blocks.EverythingPickaxeBlocks;
-import dev.sillibeans.everythingpickaxe.config.Config;
+import dev.sillibeans.everythingpickaxe.config.EverythingPickaxeConfig;
 import dev.sillibeans.everythingpickaxe.datacomponent.EverythingPickaxeDataComponents;
 import dev.sillibeans.everythingpickaxe.items.*;
 
@@ -15,16 +19,27 @@ import dev.sillibeans.everythingpickaxe.items.*;
 public final class EverythingPickaxe {
 
     public static final String MOD_ID = "everythingpickaxe";
-    public static Config CONFIG = new Config();
+
+    public static final EverythingPickaxeConfig CONFIG;
+    static final ModConfigSpec CONFIG_SPEC;
+
+    static {
+        Pair<EverythingPickaxeConfig, ModConfigSpec> pair = new ModConfigSpec.Builder()
+                .configure(EverythingPickaxeConfig::new);
+        CONFIG = pair.getLeft();
+        CONFIG_SPEC = pair.getRight();
+    }
 
     public static final Logger LOGGER = LogManager.getLogger(EverythingPickaxe.class);
 
-    public EverythingPickaxe(IEventBus modEventBus) {
+    public EverythingPickaxe(IEventBus modEventBus, ModContainer container) {
         LOGGER.info("Hello from EverythingPickaxe!");
 
         EverythingPickaxeDataComponents.DATA_COMPONENT_TYPES.register(modEventBus);
         EverythingPickaxeBlocks.BLOCKS.register(modEventBus);
         EverythingPickaxeItems.ITEMS.register(modEventBus);
+
+        container.registerConfig(ModConfig.Type.CLIENT, CONFIG_SPEC);
 
         modEventBus.addListener(EverythingPickaxe::buildContents);
     }

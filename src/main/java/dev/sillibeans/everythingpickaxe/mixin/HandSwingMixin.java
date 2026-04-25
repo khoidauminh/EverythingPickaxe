@@ -12,7 +12,7 @@ public class HandSwingMixin {
     @Inject(method = "getCurrentSwingDuration", at = @At("HEAD"), cancellable = true)
     public void swingTime(CallbackInfoReturnable<Integer> cir) {
         try {
-            cir.setReturnValue(EverythingPickaxe.CONFIG.swingTime);
+            cir.setReturnValue(EverythingPickaxe.CONFIG.swingTime.getAsInt());
         } catch (Exception ignored) {}
     }
 }
