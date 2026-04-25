@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "everythingpickaxe:everything_pickaxe_recipe"
+        "recipe": "everythingpickaxe:wooden_spoon_recipe"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

@@ -97,4 +97,9 @@ public class EverythingPickaxeItems {
             "crying_obsidian_anvil",
             () -> new BlockItem(EverythingPickaxeBlocks.CRYING_OBSIDIAN_ANVIL.get(), new Item.Properties().stacksTo(1))
     );
+
+    public static final Supplier<Item> PINWHEEL_ITEM = ITEMS.register(
+            "pinwheel",
+            () -> new PinwheelItem(new Item.Properties().stacksTo(1))
+    );
 }

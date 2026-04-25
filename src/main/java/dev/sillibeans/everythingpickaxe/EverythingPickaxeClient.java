@@ -1,5 +1,6 @@
 package dev.sillibeans.everythingpickaxe;
 
+import dev.sillibeans.everythingpickaxe.datacomponent.EverythingPickaxeDataComponents;
 import dev.sillibeans.everythingpickaxe.items.EverythingPickaxeItems;
 import dev.sillibeans.everythingpickaxe.items.UnscrambledEgg;
 
@@ -35,5 +36,9 @@ public class EverythingPickaxeClient {
                 .getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
                 .copyTag()
                 .getInt(UnscrambledEgg.MIX_TAG));
+
+        ItemProperties.register(EverythingPickaxeItems.PINWHEEL_ITEM.get(), ResourceLocation.parse("everythingpickaxe:pinwheel_spinning"),
+                (itemstack, level, entity, id) -> (itemstack
+                        .getOrDefault(EverythingPickaxeDataComponents.FAN_FINISH, 0L) > level.getGameTime()) ? 1 : 0);
     }
 }

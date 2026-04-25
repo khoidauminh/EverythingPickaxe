@@ -1,0 +1,21 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "everythingpickaxe:item/pinwheel.idle"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "everythingpickaxe:pinwheel_spinning": 0
+      },
+      "model": "everythingpickaxe:item/pinwheel.idle"
+    },
+    {
+      "predicate": {
+        "everythingpickaxe:pinwheel_spinning": 1
+      },
+      "model": "everythingpickaxe:item/pinwheel.spin"
+    }
+  ]
+}
+

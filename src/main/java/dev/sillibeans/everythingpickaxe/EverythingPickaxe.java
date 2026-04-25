@@ -52,6 +52,7 @@ public final class EverythingPickaxe {
             event.accept(EverythingPickaxeItems.EVERYTHING_AXE.get());
             event.accept(EverythingPickaxeItems.EVERYTHING_DAGGER.get());
             event.accept(EverythingPickaxeItems.SPOON.get());
+            event.accept(EverythingPickaxeItems.PINWHEEL_ITEM.get());
         }
 
         if (tab == CreativeModeTabs.FUNCTIONAL_BLOCKS) {

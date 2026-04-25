@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "everythingpickaxe:everything_bagel_recipe"
+        "recipe": "everythingpickaxe:obsidan_anvil_recipe"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

@@ -1,11 +1,17 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "everythingpickaxe:pinwheel_recipe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
     "has_ingredient_0": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:egg"
+            "items": "minecraft:iron_nugget"
           }
         ]
       },
@@ -14,16 +20,13 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_ingredient_0"
     ]
   ],
   "rewards": {
     "recipes": [
-      "everythingpickaxe:baked_egg_smoking",
-      "everythingpickaxe:baked_egg_smelting",
-      "everythingpickaxe:unscrambed_egg_recipe",
-      "everythingpickaxe:baked_scrambled_egg_smoking",
-      "everythingpickaxe:baked_scrambled_egg_smelting"
+      "everythingpickaxe:pinwheel_recipe"
     ]
   }
 }

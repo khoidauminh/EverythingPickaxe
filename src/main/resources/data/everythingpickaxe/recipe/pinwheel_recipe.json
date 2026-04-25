@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " 3 ",
+    "214",
+    " 5 "
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:iron_nugget"
+    },
+    "2": {
+      "item": "minecraft:red_carpet"
+    },
+    "3": {
+      "item": "minecraft:blue_carpet"
+    },
+    "4": {
+      "item": "minecraft:yellow_carpet"
+    },
+    "5": {
+      "item": "minecraft:green_carpet"
+    }
+  },
+  "result": {
+    "id": "everythingpickaxe:pinwheel",
+    "count": 1
+  }
+}
