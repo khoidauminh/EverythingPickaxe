@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "abc",
+    "def",
+    "ghi"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:cooked_porkchop"
+    },
+    "b": {
+      "item": "minecraft:cooked_beef"
+    },
+    "c": {
+      "item": "minecraft:cooked_chicken"
+    },
+    "d": {
+      "item": "minecraft:carrot"
+    },
+    "e": {
+      "item": "minecraft:golden_apple"
+    },
+    "f": {
+      "item": "minecraft:baked_potato"
+    },
+    "g": {
+      "item": "minecraft:cooked_mutton"
+    },
+    "h": {
+      "item": "minecraft:cooked_rabbit"
+    },
+    "i": {
+      "item": "minecraft:cooked_salmon"
+    }
+  },
+  "result": {
+    "id": "everythingpickaxe:everything_dough",
+    "count": 1
+  }
+}

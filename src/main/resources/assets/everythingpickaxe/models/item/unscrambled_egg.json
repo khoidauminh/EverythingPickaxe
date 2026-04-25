@@ -1,0 +1,20 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "everythingpickaxe:item/unscrambled_egg0001"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "everythingpickaxe:unscrambled_egg_mix": 0
+      },
+      "model": "everythingpickaxe:item/unscrambled_egg_mix_1"
+    },
+    {
+      "predicate": {
+        "everythingpickaxe:unscrambled_egg_mix": 1
+      },
+      "model": "everythingpickaxe:item/unscrambled_egg_mix_2"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "everythingpickaxe:wooden_spoon"
+    },
+
+    {
+      "item": "minecraft:bowl"
+    },
+
+    {
+      "item": "minecraft:egg"
+    }
+  ],
+  "result": {
+    "id": "everythingpickaxe:unscrambled_egg",
+    "count": 1
+  }
+}

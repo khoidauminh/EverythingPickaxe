@@ -1,0 +1,12 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "everythingpickaxe:item/filled_wooden_spoon"
+  },
+  "display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 0, 0],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

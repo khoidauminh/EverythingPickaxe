@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " a ",
+    "aba",
+    " a "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:obsidian"
+    },
+    "b": {
+      "item": "minecraft:anvil"
+    }
+  },
+  "result": {
+    "id": "everythingpickaxe:obsidian_anvil",
+    "count": 1
+  }
+}

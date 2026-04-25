@@ -1,0 +1,12 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "everythingpickaxe:item/everythingdagger"
+  },
+  "display": {
+		"thirdperson_righthand": {
+			"rotation": [-45, 90, 0],
+			"translation": [0, 5, 2]
+		}
+	}
+}

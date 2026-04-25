@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "minecraft:wooden_shovel"
+    }
+  ],
+  "result": {
+    "id": "everythingpickaxe:wooden_spoon",
+    "count": 1
+  }
+}

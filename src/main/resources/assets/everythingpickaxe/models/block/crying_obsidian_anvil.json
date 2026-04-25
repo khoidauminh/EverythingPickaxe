@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_anvil",
+  "textures": {
+    "top": "everythingpickaxe:block/obsidian_anvil_top_crying",
+    "body": "everythingpickaxe:block/obsidian_anvil_body"
+  }
+}

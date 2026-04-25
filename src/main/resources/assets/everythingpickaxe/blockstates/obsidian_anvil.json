@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "everythingpickaxe:block/obsidian_anvil",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "everythingpickaxe:block/obsidian_anvil",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "everythingpickaxe:block/obsidian_anvil"
+    },
+    "facing=west": {
+      "model": "everythingpickaxe:block/obsidian_anvil",
+      "y": 90
+    }
+  }
+}

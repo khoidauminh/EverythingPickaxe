@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "experience": 1,
+  "cookingtime": 1600,
+  "ingredient": {
+    "item": "everythingpickaxe:enchanted_everything_dough"
+  },
+  "result": {
+    "id": "everythingpickaxe:enchanted_everything_bagel"
+  }
+}
