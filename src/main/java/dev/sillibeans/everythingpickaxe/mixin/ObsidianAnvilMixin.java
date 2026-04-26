@@ -13,12 +13,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ObsidianAnvilMixin {
     @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
     private static void damage(BlockState blockState, CallbackInfoReturnable<BlockState> cir) {
-        if (blockState.is(EverythingPickaxeBlocks.OBSIDIAN_ANVIL.get())) {
-            cir.setReturnValue(EverythingPickaxeBlocks.CRYING_OBSIDIAN_ANVIL.get().defaultBlockState());
-        }
+        try {
+            if (blockState.is(EverythingPickaxeBlocks.OBSIDIAN_ANVIL.get())) {
+                cir.setReturnValue(EverythingPickaxeBlocks.CRYING_OBSIDIAN_ANVIL.get().defaultBlockState());
+            }
 
-        if (blockState.is(EverythingPickaxeBlocks.CRYING_OBSIDIAN_ANVIL.get())) {
-            cir.setReturnValue(null);
-        }
+            if (blockState.is(EverythingPickaxeBlocks.CRYING_OBSIDIAN_ANVIL.get())) {
+                cir.setReturnValue(null);
+            }
+        } catch (Exception ignored) {}
     }
 }
