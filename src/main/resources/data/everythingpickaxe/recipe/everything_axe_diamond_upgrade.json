@@ -2,7 +2,7 @@
   "type": "minecraft:smithing_transform",
   "template": [],
   "base": {
-    "item": "minecraft:netherite_axe"
+    "item": "minecraft:diamond_axe"
   },
   "addition": {
     "item": "minecraft:obsidian"

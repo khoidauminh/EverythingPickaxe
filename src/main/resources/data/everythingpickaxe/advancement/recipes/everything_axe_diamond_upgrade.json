@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "everythingpickaxe:everything_axe_netherite_upgrade"
+        "recipe": "everythingpickaxe:everything_axe_diamond_upgrade"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "everythingpickaxe:everything_axe_netherite_upgrade"
+      "everythingpickaxe:everything_axe_diamond_upgrade"
     ]
   }
 }
