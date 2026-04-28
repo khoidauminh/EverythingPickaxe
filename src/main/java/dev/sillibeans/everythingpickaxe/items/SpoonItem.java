@@ -255,18 +255,16 @@ public class SpoonItem extends Item {
             return super.finishUsingItem(itemstack, world, entity);
         }
 
-        if (!world.isClientSide() && entity instanceof Player player) {
+        if (entity instanceof Player player) {
             final var blockId = itemstack.get(EverythingPickaxeDataComponents.BLOCK_ID.get());
             final var effects = STATS.getOrDefault(BuiltInRegistries.BLOCK.get(blockId), List.of());
 
             for (var effect : effects) {
                 effect.execute(world, player);
             }
-
-            return new ItemStack(EverythingPickaxeItems.SPOON.get(), 1);
         }
 
-        return super.finishUsingItem(itemstack, world, entity);
+        return new ItemStack(EverythingPickaxeItems.SPOON.get(), 1);
     }
 
     @Override
