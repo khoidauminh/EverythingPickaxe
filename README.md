@@ -1,5 +1,11 @@
 ## Everything Pickaxe
 
-Everything Pickaxe is a 1.21.1 mod that adds renewable high tier tools into the game. Currently the Everything Pickaxe (obsidian) and the Everything Axe (obsidian) are present.
+Everything Pickaxe is a 1.21.1 mod that adds an "Everything tool" to the game in the form of a pickaxe. 
+Once unlocked using crying obsidian, the Everything Pickaxe is permanently renewable using regular obsidian.  
+Other aspects of the mod includes making a few things renewable, such as the obsidian anvil, and various silly items.
 
-The mod also includes the Everything Dagger (which inflicts wither on all affectable mobs), and the Everything Bagel, which gives you saturation for hours.
+## Downloads
+
+Stable releases are uploaded to https://modrinth.com/mod/everythingpickaxe.
+
+More frequent releases are posted here.
