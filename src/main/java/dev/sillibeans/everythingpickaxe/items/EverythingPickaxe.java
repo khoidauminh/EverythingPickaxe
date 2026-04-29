@@ -22,41 +22,41 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class EverythingTool extends TieredItem {
+public class EverythingPickaxe extends TieredItem {
     final float miningSpeed;
 
-    public EverythingTool(float miningSpeed, float attackSpeed, float attackDamange, int uses) {
+    public EverythingPickaxe(float miningSpeed, float attackSpeed, float attackDamange, int uses) {
         super(new Tier() {
-            @Override
-            public int getUses() {
-                return uses;
-            }
+                  @Override
+                  public int getUses() {
+                      return uses;
+                  }
 
-            @Override
-            public float getSpeed() {
-                return miningSpeed;
-            }
+                  @Override
+                  public float getSpeed() {
+                      return miningSpeed;
+                  }
 
-            @Override
-            public float getAttackDamageBonus() {
-                return 0;
-            }
+                  @Override
+                  public float getAttackDamageBonus() {
+                      return 0;
+                  }
 
-            @Override
-            public @NotNull TagKey<Block> getIncorrectBlocksForDrops() {
-                return BlockTags.AIR;
-            }
+                  @Override
+                  public @NotNull TagKey<Block> getIncorrectBlocksForDrops() {
+                      return BlockTags.AIR;
+                  }
 
-            @Override
-            public int getEnchantmentValue() {
-                return 4;
-            }
+                  @Override
+                  public int getEnchantmentValue() {
+                      return 4;
+                  }
 
-            @Override
-            public @NotNull Ingredient getRepairIngredient() {
-                return Ingredient.of(new ItemStack(Items.OBSIDIAN));
-            }
-        },
+                  @Override
+                  public @NotNull Ingredient getRepairIngredient() {
+                      return Ingredient.of(new ItemStack(Items.OBSIDIAN));
+                  }
+              },
             new Item.Properties()
                 .attributes(
                     ItemAttributeModifiers.builder()
@@ -106,7 +106,7 @@ public class EverythingTool extends TieredItem {
                 return res;
             }
         } else {
-            for (final var i: uses) {
+            for (final var i : uses) {
                 final InteractionResult res = i.useOn(ctx);
                 if (res != InteractionResult.PASS) {
                     return res;
@@ -127,11 +127,11 @@ public class EverythingTool extends TieredItem {
 
     @Override
     public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ItemAbility toolAction) {
-        return  ItemAbilities.DEFAULT_AXE_ACTIONS.contains(toolAction) ||
-                ItemAbilities.DEFAULT_HOE_ACTIONS.contains(toolAction) ||
-                ItemAbilities.DEFAULT_SHOVEL_ACTIONS.contains(toolAction) ||
-                ItemAbilities.DEFAULT_PICKAXE_ACTIONS.contains(toolAction) ||
-                ItemAbilities.DEFAULT_SWORD_ACTIONS.contains(toolAction);
+        return ItemAbilities.DEFAULT_AXE_ACTIONS.contains(toolAction) ||
+            ItemAbilities.DEFAULT_HOE_ACTIONS.contains(toolAction) ||
+            ItemAbilities.DEFAULT_SHOVEL_ACTIONS.contains(toolAction) ||
+            ItemAbilities.DEFAULT_PICKAXE_ACTIONS.contains(toolAction) ||
+            ItemAbilities.DEFAULT_SWORD_ACTIONS.contains(toolAction);
     }
 
     @Override

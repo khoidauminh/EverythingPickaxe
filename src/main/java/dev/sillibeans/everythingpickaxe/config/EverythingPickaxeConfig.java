@@ -7,8 +7,8 @@ public class EverythingPickaxeConfig {
 
     public EverythingPickaxeConfig(ModConfigSpec.Builder builder) {
         swingTime = builder
-                .translation("config.everythingpickaxe.swing_time")
-                .comment("Adjust your hand swing animation duration (1 to disable).")
-                .defineInRange("swingTime", 6, 1, 20);
+            .translation("config.everythingpickaxe.swing_time")
+            .comment("Adjust your hand swing animation duration (1 to disable).")
+            .defineInRange("swingTime", 6, 1, 20);
     }
 }

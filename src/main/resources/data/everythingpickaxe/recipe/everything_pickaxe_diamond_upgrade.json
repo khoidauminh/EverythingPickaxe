@@ -5,7 +5,7 @@
     "item": "minecraft:diamond_pickaxe"
   },
   "addition": {
-    "item": "minecraft:obsidian"
+    "item": "minecraft:crying_obsidian"
   },
   "result": {
     "id": "everythingpickaxe:everything_pickaxe"

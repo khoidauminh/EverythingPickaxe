@@ -38,7 +38,7 @@ public class EverythingPickaxeClient {
                 .getInt(UnscrambledEgg.MIX_TAG));
 
         ItemProperties.register(EverythingPickaxeItems.PINWHEEL_ITEM.get(), ResourceLocation.parse("everythingpickaxe:pinwheel_spinning"),
-                (itemstack, level, entity, id) -> (itemstack
-                        .getOrDefault(EverythingPickaxeDataComponents.FAN_FINISH, 0L) > level.getGameTime()) ? 1 : 0);
+            (itemstack, level, entity, id) -> (itemstack
+                .getOrDefault(EverythingPickaxeDataComponents.FAN_FINISH, 0L) > level.getGameTime()) ? 1 : 0);
     }
 }

@@ -41,9 +41,9 @@ public class EverythingBagelItem extends Item {
 
     @Override
     public @NotNull ItemStack finishUsingItem(
-            @NotNull ItemStack itemstack,
-            @NotNull Level world,
-            @NotNull LivingEntity player
+        @NotNull ItemStack itemstack,
+        @NotNull Level world,
+        @NotNull LivingEntity player
     ) {
         ItemStack retval = super.finishUsingItem(itemstack, world, player);
 

@@ -1,9 +1,8 @@
 package dev.sillibeans.everythingpickaxe.mixin;
 
+import dev.sillibeans.everythingpickaxe.blocks.EverythingPickaxeBlocks;
 import net.minecraft.world.level.block.AnvilBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import dev.sillibeans.everythingpickaxe.blocks.EverythingPickaxeBlocks;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,6 +20,7 @@ public class ObsidianAnvilMixin {
             if (blockState.is(EverythingPickaxeBlocks.CRYING_OBSIDIAN_ANVIL.get())) {
                 cir.setReturnValue(null);
             }
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
 }

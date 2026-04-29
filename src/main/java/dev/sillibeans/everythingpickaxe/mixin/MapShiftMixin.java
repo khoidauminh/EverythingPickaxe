@@ -28,6 +28,7 @@ public class MapShiftMixin {
                 player.playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT);
                 cir.setReturnValue(true);
             }
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
 }

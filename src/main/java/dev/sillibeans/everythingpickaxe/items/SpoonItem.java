@@ -35,8 +35,11 @@ import java.util.Map;
 import java.util.function.Function;
 
 class EatEvent {
-    public EatEvent() {}
-    public void apply(Level level, Player player) {}
+    public EatEvent() {
+    }
+
+    public void apply(Level level, Player player) {
+    }
 }
 
 class EffectEvent extends EatEvent {
@@ -62,11 +65,6 @@ class DamageEvent extends EatEvent {
     final float amount;
     final Source source;
 
-    public enum Source {
-        GENERIC,
-        BURN,
-    }
-
     DamageEvent(float a, Source source) {
         this.amount = a;
         this.source = source;
@@ -88,6 +86,11 @@ class DamageEvent extends EatEvent {
     @Override
     public void apply(Level level, Player player) {
         player.hurt(player.damageSources().generic(), amount);
+    }
+
+    public enum Source {
+        GENERIC,
+        BURN,
     }
 }
 
@@ -146,14 +149,10 @@ record ChancedEvent<T>(T event, float chance) {
 }
 
 public class SpoonItem extends Item {
-    private final boolean isFilled;
-
     private static final ChancedEvent<DamageEvent> DAMAGE = new ChancedEvent<>(new DamageEvent(1));
     private static final ChancedEvent<DamageEvent> DAMAGE2 = DAMAGE.mod((e) -> e.dmg(2));
     private static final ChancedEvent<DamageEvent> DAMAGE3 = DAMAGE.mod((e) -> e.dmg(3));
-
     private static final ChancedEvent<EffectEvent> WITHER = new ChancedEvent<>(new EffectEvent(MobEffects.WITHER, 300));
-
     private static final ChancedEvent<DamageEvent> BURN = DAMAGE.mod((e) -> e.dmg(1).burn());
 
     private static final ChancedEvent<EffectEvent> HUNGER = new ChancedEvent<>(new EffectEvent(MobEffects.HUNGER, 300));
@@ -170,45 +169,47 @@ public class SpoonItem extends Item {
     private static final ChancedEvent<LootEvent> DIAMOND = new ChancedEvent<>(new LootEvent(Items.DIAMOND, 1));
 
     private static final Map<Block, List<ChancedEvent<?>>> STATS = Map.ofEntries(
-            Map.entry(Blocks.DIRT, List.of(DAMAGE.chance(0.8f))),
-            Map.entry(Blocks.GRASS_BLOCK, List.of(DAMAGE.chance(0.6f))),
-            Map.entry(Blocks.PODZOL, List.of(DAMAGE, HUNGER.chance(0.75f))),
-            Map.entry(Blocks.COARSE_DIRT, List.of(DAMAGE2, DAMAGE.chance(0.5f))),
-            Map.entry(Blocks.GRAVEL, List.of(DAMAGE3, ABSORBTION.chance(0.1f))),
-            Map.entry(Blocks.MOSS_BLOCK, List.of(SATURATION.chance(0.2f))),
-            Map.entry(Blocks.MUD, List.of(HUNGER.mod((e) -> e.dur(400)))),
-            Map.entry(Blocks.DIRT_PATH, List.of(DAMAGE.chance(0.2f))),
-            Map.entry(Blocks.FARMLAND, List.of(DAMAGE.chance(0.5f))),
-            Map.entry(Blocks.SOUL_SAND, List.of(PHANTOM.chance(0.6f), ALLAY.chance(0.05f))),
-            Map.entry(Blocks.SOUL_SOIL, List.of(SATURATION.chance(0.8f), PHANTOM.chance(0.6f), ALLAY.chance(0.05f))),
+        Map.entry(Blocks.DIRT, List.of(DAMAGE.chance(0.8f))),
+        Map.entry(Blocks.GRASS_BLOCK, List.of(DAMAGE.chance(0.6f))),
+        Map.entry(Blocks.PODZOL, List.of(DAMAGE, HUNGER.chance(0.75f))),
+        Map.entry(Blocks.COARSE_DIRT, List.of(DAMAGE2, DAMAGE.chance(0.5f))),
+        Map.entry(Blocks.GRAVEL, List.of(DAMAGE3, ABSORBTION.chance(0.1f))),
+        Map.entry(Blocks.MOSS_BLOCK, List.of(SATURATION.chance(0.2f))),
+        Map.entry(Blocks.MUD, List.of(HUNGER.mod((e) -> e.dur(400)))),
+        Map.entry(Blocks.DIRT_PATH, List.of(DAMAGE.chance(0.2f))),
+        Map.entry(Blocks.FARMLAND, List.of(DAMAGE.chance(0.5f))),
+        Map.entry(Blocks.SOUL_SAND, List.of(PHANTOM.chance(0.6f), ALLAY.chance(0.05f))),
+        Map.entry(Blocks.SOUL_SOIL, List.of(SATURATION.chance(0.8f), PHANTOM.chance(0.6f), ALLAY.chance(0.05f))),
 
-            Map.entry(Blocks.SNOW_BLOCK, List.of(SLOWNESS.chance(0.75f))),
-            Map.entry(Blocks.SNOW, List.of(SLOWNESS.chance(0.75f))),
-            Map.entry(Blocks.POWDER_SNOW_CAULDRON, List.of(SLOWNESS.chance(0.75f))),
+        Map.entry(Blocks.SNOW_BLOCK, List.of(SLOWNESS.chance(0.75f))),
+        Map.entry(Blocks.SNOW, List.of(SLOWNESS.chance(0.75f))),
+        Map.entry(Blocks.POWDER_SNOW_CAULDRON, List.of(SLOWNESS.chance(0.75f))),
 
-            Map.entry(Blocks.POWDER_SNOW, List.of(SLOWNESS, DAMAGE3)),
-            Map.entry(Blocks.SUSPICIOUS_GRAVEL, List.of(SLOWNESS, DAMAGE3, DIAMOND.chance(0.01f))),
-            Map.entry(Blocks.SAND, List.of(SLOWNESS, DAMAGE3, DIAMOND.chance(0.01f))),
+        Map.entry(Blocks.POWDER_SNOW, List.of(SLOWNESS, DAMAGE3)),
+        Map.entry(Blocks.SUSPICIOUS_GRAVEL, List.of(SLOWNESS, DAMAGE3, DIAMOND.chance(0.01f))),
+        Map.entry(Blocks.SAND, List.of(SLOWNESS, DAMAGE3, DIAMOND.chance(0.01f))),
 
-            Map.entry(Blocks.SCULK, List.of(EXPERIENCE)),
-            Map.entry(Blocks.SCULK_CATALYST, List.of(EXPERIENCE)),
+        Map.entry(Blocks.SCULK, List.of(EXPERIENCE)),
+        Map.entry(Blocks.SCULK_CATALYST, List.of(EXPERIENCE)),
 
-            Map.entry(Blocks.ROOTED_DIRT, List.of()),
-            Map.entry(Blocks.CLAY, List.of(HUNGER)),
-            Map.entry(Blocks.FLOWER_POT, List.of(DAMAGE.chance(0.8f))),
-            Map.entry(Blocks.CAKE, List.of(SATURATION.chance(0.1f).mod(e -> e.dur(200)))),
-            Map.entry(Blocks.COBWEB, List.of(SLOWNESS.chance(0.75f).mod(e -> e.dur(100)))),
-            Map.entry(Blocks.GLOW_LICHEN, List.of(GLOW)),
-            Map.entry(Blocks.HONEY_BLOCK, List.of(SATURATION)),
-            Map.entry(Blocks.SLIME_BLOCK, List.of(HUNGER.mod(e -> e.dur(600)), OOZING)),
-            Map.entry(Blocks.MUDDY_MANGROVE_ROOTS, List.of(HUNGER.mod(e -> e.dur(400)), SATURATION)),
-            Map.entry(Blocks.PACKED_MUD, List.of()),
+        Map.entry(Blocks.ROOTED_DIRT, List.of()),
+        Map.entry(Blocks.CLAY, List.of(HUNGER)),
+        Map.entry(Blocks.FLOWER_POT, List.of(DAMAGE.chance(0.8f))),
+        Map.entry(Blocks.CAKE, List.of(SATURATION.chance(0.1f).mod(e -> e.dur(200)))),
+        Map.entry(Blocks.COBWEB, List.of(SLOWNESS.chance(0.75f).mod(e -> e.dur(100)))),
+        Map.entry(Blocks.GLOW_LICHEN, List.of(GLOW)),
+        Map.entry(Blocks.HONEY_BLOCK, List.of(SATURATION)),
+        Map.entry(Blocks.SLIME_BLOCK, List.of(HUNGER.mod(e -> e.dur(600)), OOZING)),
+        Map.entry(Blocks.MUDDY_MANGROVE_ROOTS, List.of(HUNGER.mod(e -> e.dur(400)), SATURATION)),
+        Map.entry(Blocks.PACKED_MUD, List.of()),
 
-            Map.entry(Blocks.LAVA, List.of(DAMAGE.mod(e -> e.dmg(8)), BURN)),
-            Map.entry(Blocks.LAVA_CAULDRON, List.of(DAMAGE.mod(e -> e.dmg(8)), BURN)),
+        Map.entry(Blocks.LAVA, List.of(DAMAGE.mod(e -> e.dmg(8)), BURN)),
+        Map.entry(Blocks.LAVA_CAULDRON, List.of(DAMAGE.mod(e -> e.dmg(8)), BURN)),
 
-            Map.entry(Blocks.WITHER_ROSE, List.of(WITHER))
+        Map.entry(Blocks.WITHER_ROSE, List.of(WITHER))
     );
+
+    private final boolean isFilled;
 
     public SpoonItem(boolean isFilled) {
         super(SpoonItem.props(isFilled));
@@ -239,17 +240,17 @@ public class SpoonItem extends Item {
 
     @Override
     public boolean isCorrectToolForDrops(
-            @NotNull ItemStack itemstack,
-            @NotNull BlockState blockstate
+        @NotNull ItemStack itemstack,
+        @NotNull BlockState blockstate
     ) {
         return false;
     }
 
     @Override
     public @NotNull ItemStack finishUsingItem(
-            @NotNull ItemStack itemstack,
-            @NotNull Level world,
-            @NotNull LivingEntity entity
+        @NotNull ItemStack itemstack,
+        @NotNull Level world,
+        @NotNull LivingEntity entity
     ) {
         if (!isFilled) {
             return super.finishUsingItem(itemstack, world, entity);

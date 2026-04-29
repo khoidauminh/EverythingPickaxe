@@ -57,6 +57,7 @@ public class BonemealMixin {
 
                 cir.setReturnValue(InteractionResult.sidedSuccess(level.isClientSide()));
             }
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
 }

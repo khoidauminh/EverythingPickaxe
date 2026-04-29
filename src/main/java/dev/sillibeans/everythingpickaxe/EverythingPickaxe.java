@@ -1,5 +1,9 @@
 package dev.sillibeans.everythingpickaxe;
 
+import dev.sillibeans.everythingpickaxe.blocks.EverythingPickaxeBlocks;
+import dev.sillibeans.everythingpickaxe.config.EverythingPickaxeConfig;
+import dev.sillibeans.everythingpickaxe.datacomponent.EverythingPickaxeDataComponents;
+import dev.sillibeans.everythingpickaxe.items.EverythingPickaxeItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -10,10 +14,6 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import dev.sillibeans.everythingpickaxe.blocks.EverythingPickaxeBlocks;
-import dev.sillibeans.everythingpickaxe.config.EverythingPickaxeConfig;
-import dev.sillibeans.everythingpickaxe.datacomponent.EverythingPickaxeDataComponents;
-import dev.sillibeans.everythingpickaxe.items.*;
 
 @Mod(EverythingPickaxe.MOD_ID)
 public final class EverythingPickaxe {
@@ -21,16 +21,15 @@ public final class EverythingPickaxe {
     public static final String MOD_ID = "everythingpickaxe";
 
     public static final EverythingPickaxeConfig CONFIG;
+    public static final Logger LOGGER = LogManager.getLogger(EverythingPickaxe.class);
     static final ModConfigSpec CONFIG_SPEC;
 
     static {
         Pair<EverythingPickaxeConfig, ModConfigSpec> pair = new ModConfigSpec.Builder()
-                .configure(EverythingPickaxeConfig::new);
+            .configure(EverythingPickaxeConfig::new);
         CONFIG = pair.getLeft();
         CONFIG_SPEC = pair.getRight();
     }
-
-    public static final Logger LOGGER = LogManager.getLogger(EverythingPickaxe.class);
 
     public EverythingPickaxe(IEventBus modEventBus, ModContainer container) {
         LOGGER.info("Hello from EverythingPickaxe!");
@@ -49,7 +48,6 @@ public final class EverythingPickaxe {
 
         if (tab == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(EverythingPickaxeItems.EVERYTHING_PICKAXE.get());
-            event.accept(EverythingPickaxeItems.EVERYTHING_AXE.get());
             event.accept(EverythingPickaxeItems.EVERYTHING_DAGGER.get());
             event.accept(EverythingPickaxeItems.SPOON.get());
             event.accept(EverythingPickaxeItems.PINWHEEL_ITEM.get());

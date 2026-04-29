@@ -27,9 +27,9 @@ public class UnscrambledEgg extends Item {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(
-            @NotNull Level world,
-            @NotNull Player player,
-            @NotNull InteractionHand hand
+        @NotNull Level world,
+        @NotNull Player player,
+        @NotNull InteractionHand hand
     ) {
         InteractionResultHolder<ItemStack> ar = super.use(world, player, hand);
 
@@ -68,11 +68,11 @@ public class UnscrambledEgg extends Item {
 
         final int mixVal =
             (itemstack
-                    .getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
-                    .copyTag()
-                    .getInt(MIX_TAG) +
+                .getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
+                .copyTag()
+                .getInt(MIX_TAG) +
                 1) %
-            2;
+                2;
 
         CustomData.update(DataComponents.CUSTOM_DATA, itemstack, tag ->
             tag.putInt(MIX_TAG, mixVal)

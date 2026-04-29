@@ -30,9 +30,9 @@ public class ScrambledEgg extends Item {
 
     @Override
     public @NotNull ItemStack finishUsingItem(
-            @NotNull ItemStack itemstack,
-            @NotNull Level world,
-            @NotNull LivingEntity entity
+        @NotNull ItemStack itemstack,
+        @NotNull Level world,
+        @NotNull LivingEntity entity
     ) {
         super.finishUsingItem(itemstack, world, entity);
 
@@ -52,7 +52,7 @@ public class ScrambledEgg extends Item {
             }
         }
 
-        itemstack.setCount(itemstack.getCount()-1);
+        itemstack.setCount(itemstack.getCount() - 1);
 
         if (!world.isClientSide()) {
             final var x = entity.getX();
