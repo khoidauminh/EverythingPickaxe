@@ -88,7 +88,7 @@ public class EverythingPickaxe extends TieredItem {
 
     @Override
     public float getDestroySpeed(@NotNull ItemStack itemstack, BlockState blockstate) {
-        return blockstate.is(Blocks.COBWEB) ? 15F : this.miningSpeed;
+        return blockstate.is(Blocks.COBWEB) ? 15F : (float)Math.sqrt(Math.E * blockstate.getBlock().defaultDestroyTime());
     }
 
     @Override
