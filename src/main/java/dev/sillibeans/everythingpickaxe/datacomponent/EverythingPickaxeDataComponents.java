@@ -27,4 +27,10 @@ public class EverythingPickaxeDataComponents {
             DataComponentType.<Long>builder()
                 .persistent(Codec.LONG)
                 .build());
+
+    public static final Supplier<DataComponentType<Integer>> PICKAXE_TIP_USE =
+        DATA_COMPONENT_TYPES.register("pickaxe_tip_use", () ->
+            DataComponentType.<Integer>builder()
+                .persistent(Codec.INT)
+                .build());
 }

@@ -60,7 +60,7 @@ public class EverythingPickaxeItems {
 
     public static final Supplier<Item> EVERYTHING_PICKAXE =
         ITEMS.register("everything_pickaxe", () ->
-            new EverythingPickaxe(3f, 1.25f, 7f, 3461)
+            new EverythingPickaxeItem(3f, 1.25f, 7f, 3461)
         );
 
     public static final Supplier<Item> EVERYTHING_DAGGER =

@@ -1,5 +1,6 @@
 package dev.sillibeans.everythingpickaxe.items;
 
+import dev.sillibeans.everythingpickaxe.datacomponent.EverythingPickaxeDataComponents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -32,10 +33,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EverythingPickaxe extends TieredItem {
+public class EverythingPickaxeItem extends TieredItem {
     final float miningSpeed;
 
-    public EverythingPickaxe(float miningSpeed, float attackSpeed, float attackDamange, int uses) {
+    public EverythingPickaxeItem(float miningSpeed, float attackSpeed, float attackDamange, int uses) {
         super(new Tier() {
                   @Override
                   public int getUses() {
@@ -175,8 +176,11 @@ public class EverythingPickaxe extends TieredItem {
             effects.forEachEffect(entity::addEffect);
             durabilityReduce = 10;
 
-            if (sourceentity.getRandom().nextFloat() < 0.5f) {
+            int use = itemstack.get(EverythingPickaxeDataComponents.PICKAXE_TIP_USE.get()) - 1;
+
+            if (use == 0) {
                 itemstack.remove(DataComponents.POTION_CONTENTS);
+                itemstack.remove(EverythingPickaxeDataComponents.PICKAXE_TIP_USE.get());
                 itemstack.remove(DataComponents.LORE);
                 itemstack.set(DataComponents.ITEM_NAME, Component.translatable("item.everythingpickaxe.everything_pickaxe"));
             }
@@ -194,7 +198,7 @@ public class EverythingPickaxe extends TieredItem {
     }
 
     @Override
-    public boolean overrideOtherStackedOnMe(ItemStack itemStack, ItemStack itemStack2, Slot slot, ClickAction clickAction, Player player, SlotAccess slotAccess) {
+    public boolean overrideOtherStackedOnMe(@NotNull ItemStack itemStack, ItemStack itemStack2, @NotNull Slot slot, @NotNull ClickAction clickAction, @NotNull Player player, @NotNull SlotAccess slotAccess) {
         if (itemStack2.is(Items.LINGERING_POTION) && itemStack.get(DataComponents.POTION_CONTENTS) == null && clickAction == ClickAction.SECONDARY) {
             itemStack.set(DataComponents.ITEM_NAME, Component.literal("Tipped Everything Pickaxe"));
 
@@ -206,6 +210,7 @@ public class EverythingPickaxe extends TieredItem {
             }
 
             itemStack.set(DataComponents.POTION_CONTENTS, potion);
+            itemStack.set(EverythingPickaxeDataComponents.PICKAXE_TIP_USE.get(), 4);
             player.playSound(SoundEvents.BOTTLE_FILL);
             itemStack.set(DataComponents.LORE, new ItemLore(effects));
             return true;
