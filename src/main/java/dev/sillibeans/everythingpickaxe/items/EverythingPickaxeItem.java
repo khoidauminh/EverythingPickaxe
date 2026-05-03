@@ -185,6 +185,8 @@ public class EverythingPickaxeItem extends TieredItem {
                 itemstack.set(DataComponents.ITEM_NAME, Component.translatable("item.everythingpickaxe.everything_pickaxe"));
             }
 
+            itemstack.set(EverythingPickaxeDataComponents.PICKAXE_TIP_USE.get(), use);
+
             return true;
         }
 
@@ -213,6 +215,8 @@ public class EverythingPickaxeItem extends TieredItem {
             itemStack.set(EverythingPickaxeDataComponents.PICKAXE_TIP_USE.get(), 4);
             player.playSound(SoundEvents.BOTTLE_FILL);
             itemStack.set(DataComponents.LORE, new ItemLore(effects));
+            itemStack2.setCount(0);
+
             return true;
         }
 
