@@ -13,7 +13,7 @@ public class HandSwingMixin {
     public void swingTime(CallbackInfoReturnable<Integer> cir) {
         try {
             final int currentVal = cir.getReturnValue();
-            final int newVal = currentVal * EverythingPickaxe.CONFIG.swingTime.getAsInt() / LivingEntity.SWING_DURATION;
+            final int newVal = currentVal * EverythingPickaxe.CONFIG.swingTime().getAsInt() / LivingEntity.SWING_DURATION;
             cir.setReturnValue(newVal);
         } catch (Exception ignored) {
         }

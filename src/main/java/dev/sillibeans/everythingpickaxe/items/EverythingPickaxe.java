@@ -14,7 +14,6 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
@@ -88,7 +87,7 @@ public class EverythingPickaxe extends TieredItem {
 
     @Override
     public float getDestroySpeed(@NotNull ItemStack itemstack, BlockState blockstate) {
-        return Math.max(1f, (float)Math.sqrt(Math.E * blockstate.getBlock().defaultDestroyTime()));
+        return Math.max(1f, (float) Math.sqrt(Math.E * blockstate.getBlock().defaultDestroyTime()));
     }
 
     @Override

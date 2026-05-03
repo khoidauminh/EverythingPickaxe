@@ -30,7 +30,7 @@ public class ObsidianAnvilBlock extends AnvilBlock {
 
             if (stack.is(Items.LAVA_BUCKET) && state.is(EverythingPickaxeBlocks.CRYING_OBSIDIAN_ANVIL.get())) {
                 level.setBlock(
-                    pos, EverythingPickaxeBlocks.OBSIDIAN_ANVIL.get().defaultBlockState().setValue(FACING, (Direction) state.getValue(FACING)),
+                    pos, EverythingPickaxeBlocks.OBSIDIAN_ANVIL.get().defaultBlockState().setValue(FACING, state.getValue(FACING)),
                     Block.UPDATE_ALL
                 );
 
