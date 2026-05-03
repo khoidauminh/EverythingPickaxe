@@ -20,15 +20,12 @@ import static dev.sillibeans.everythingpickaxe.util.Utils.getMapScale;
 public class MapShiftMixin {
     @Inject(method = "overrideOtherStackedOnMe", at = @At("HEAD"), cancellable = true)
     public void overrideOtherStackedOnMe(ItemStack itemStack, ItemStack itemStack2, Slot slot, ClickAction clickAction, Player player, SlotAccess slotAccess, CallbackInfoReturnable<Boolean> cir) {
-        try {
-            if (itemStack2.is(Items.WATER_BUCKET) && itemStack.is(Items.FILLED_MAP) && clickAction == ClickAction.SECONDARY) {
-                var map = MapItem.create(player.level(), player.getBlockX(), player.getBlockZ(), getMapScale(itemStack2, player.level()), true, false);
-                slot.set(map);
-                player.playSound(SoundEvents.PLAYER_SPLASH);
-                player.playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT);
-                cir.setReturnValue(true);
-            }
-        } catch (Exception ignored) {
+        if (itemStack2.is(Items.WATER_BUCKET) && itemStack.is(Items.FILLED_MAP) && clickAction == ClickAction.SECONDARY) {
+            var map = MapItem.create(player.level(), player.getBlockX(), player.getBlockZ(), getMapScale(itemStack2, player.level()), true, false);
+            slot.set(map);
+            player.playSound(SoundEvents.PLAYER_SPLASH);
+            player.playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT);
+            cir.setReturnValue(true);
         }
     }
 }
