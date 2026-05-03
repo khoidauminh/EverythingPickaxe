@@ -16,5 +16,6 @@
   "item.everythingpickaxe.pinwheel": "Pinwheel",
   "block.everythingpickaxe.crying_obsidian_anvil": "Crying Obsidian Anvil",
   "item.everythingpickaxe.crying_obsidian_anvil": "Crying Obsidian Anvil",
-  "config.everythingpickaxe.swing_time": "Handswing Duration"
+  "config.everythingpickaxe.swing_time": "Handswing Duration",
+  "config.everythingpickaxe.determination": "Determination"
 }

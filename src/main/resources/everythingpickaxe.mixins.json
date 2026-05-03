@@ -6,10 +6,10 @@
   "client": [
   ],
   "mixins": [
-    "ObsidianAnvilMixin",
-    "MapShiftMixin",
+    "BonemealMixin",
     "HandSwingMixin",
-    "BonemealMixin"
+    "MapShiftMixin",
+    "ObsidianAnvilMixin"
   ],
   "injectors": {
     "defaultRequire": 1

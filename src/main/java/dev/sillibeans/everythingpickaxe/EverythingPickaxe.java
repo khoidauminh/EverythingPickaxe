@@ -3,6 +3,7 @@ package dev.sillibeans.everythingpickaxe;
 import dev.sillibeans.everythingpickaxe.blocks.EverythingPickaxeBlocks;
 import dev.sillibeans.everythingpickaxe.config.EverythingPickaxeConfig;
 import dev.sillibeans.everythingpickaxe.datacomponent.EverythingPickaxeDataComponents;
+import dev.sillibeans.everythingpickaxe.events.DeterminationEvent;
 import dev.sillibeans.everythingpickaxe.items.EverythingPickaxeItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
@@ -10,6 +11,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
@@ -41,6 +43,7 @@ public final class EverythingPickaxe {
         container.registerConfig(ModConfig.Type.CLIENT, CONFIG_SPEC);
 
         modEventBus.addListener(EverythingPickaxe::buildContents);
+        NeoForge.EVENT_BUS.register(DeterminationEvent.class);
     }
 
     public static void buildContents(BuildCreativeModeTabContentsEvent event) {
