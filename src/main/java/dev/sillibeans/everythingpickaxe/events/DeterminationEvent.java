@@ -11,7 +11,7 @@ public class DeterminationEvent {
     @SubscribeEvent
     public static void onHarvestCheck(PlayerEvent.HarvestCheck event) {
         Player player = event.getEntity();
-        final boolean hasEnoughLevels = player.experienceLevel >= 30f;
+        final boolean hasEnoughLevels = player.experienceLevel >= 30;
         final boolean hasUnlockedDetermination = player.getData(AttachmentTypes.DETERMINATION);
 
         if (hasEnoughLevels || hasUnlockedDetermination) {
@@ -20,6 +20,15 @@ public class DeterminationEvent {
             }
 
             event.setCanHarvest(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onExpCollect(PlayerXpEvent.LevelChange event) {
+        Player player = event.getEntity();
+
+        if (player.experienceLevel + event.getLevels() >= 30) {
+            player.setData(AttachmentTypes.DETERMINATION, true);
         }
     }
 }
