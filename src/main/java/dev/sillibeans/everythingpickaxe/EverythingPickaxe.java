@@ -1,5 +1,6 @@
 package dev.sillibeans.everythingpickaxe;
 
+import dev.sillibeans.everythingpickaxe.attachment.AttachmentTypes;
 import dev.sillibeans.everythingpickaxe.blocks.EverythingPickaxeBlocks;
 import dev.sillibeans.everythingpickaxe.config.EverythingPickaxeConfig;
 import dev.sillibeans.everythingpickaxe.datacomponent.EverythingPickaxeDataComponents;
@@ -37,6 +38,8 @@ public final class EverythingPickaxe {
         LOGGER.info("Hello from EverythingPickaxe!");
 
         EverythingPickaxeDataComponents.DATA_COMPONENT_TYPES.register(modEventBus);
+        AttachmentTypes.ATTACHMENT_TYPES.register(modEventBus);
+
         EverythingPickaxeBlocks.BLOCKS.register(modEventBus);
         EverythingPickaxeItems.ITEMS.register(modEventBus);
 
