@@ -9,9 +9,8 @@ public class DeterminationEvent {
     @SubscribeEvent
     public static void onHarvestCheck(PlayerEvent.HarvestCheck event) {
         Player player = event.getEntity();
-        final boolean hasEnoughLevels = player.experienceLevel >= 40f;
-
-        if (EverythingPickaxe.CONFIG.determination().get() && hasEnoughLevels) {
+        final boolean hasEnoughLevels = player.experienceLevel >= 30f;
+        if (hasEnoughLevels) {
             event.setCanHarvest(true);
         }
     }
