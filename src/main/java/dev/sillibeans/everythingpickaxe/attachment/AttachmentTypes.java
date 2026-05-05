@@ -15,10 +15,10 @@ import java.util.function.Supplier;
 public class AttachmentTypes {
     public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, "modid");
 
-    public static final Supplier<AttachmentType<Boolean>> DETERMINATION = ATTACHMENT_TYPES.register("determination", () ->
-        AttachmentType.builder(() -> false)
-            .serialize(Codec.BOOL)
-            .sync(ByteBufCodecs.BOOL)
+    public static final Supplier<AttachmentType<Integer>> DETERMINATION = ATTACHMENT_TYPES.register("determination", () ->
+        AttachmentType.builder(() -> 0)
+            .serialize(Codec.INT)
+            .sync(ByteBufCodecs.INT)
             .build()
     );
 }
